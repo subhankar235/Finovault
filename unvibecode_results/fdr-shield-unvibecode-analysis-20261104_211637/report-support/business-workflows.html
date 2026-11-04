@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>fdr-shield · Business Workflow Map</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f9fc;color:#0f172a;font-family:Segoe UI,Arial,sans-serif}
+.hero{padding:28px max(20px,6vw) 24px;background:linear-gradient(125deg,#111827,#312e81);color:#fff}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#7c3aed}.hero .eyebrow{color:#c4b5fd}
+.hero h1{margin:5px 0 7px;font-size:32px;line-height:1.15;letter-spacing:-.02em}.hero p{max-width:840px;margin:0;color:#e0e7ff;font-size:14px;line-height:1.45}.hero-meta{margin-top:12px;font-size:12px;color:#cbd5e1}
+.wrap{max-width:1180px;margin:20px auto;padding:0 20px 50px}.workflow-group{margin:18px 0 24px;padding:18px;background:#eef2ff;border:1px solid #dbe3f5;border-radius:22px}.group-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:2px 4px 14px}.group-header h2{margin:4px 0 0;font-size:25px;line-height:1.2}.group-count{flex:0 0 auto;padding:7px 11px;background:#fff;border:1px solid #d8def0;border-radius:999px;color:#475569;font-size:12px;font-weight:750}
+.workflow-card{display:flex;gap:18px;margin:10px 0;padding:21px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 7px 20px rgba(15,23,42,.05)}
+.workflow-number{flex:0 0 44px;font-size:27px;font-weight:850;color:#c4b5fd}.workflow-content{flex:1;min-width:0}.workflow-title{margin:5px 0 13px;font-size:22px;line-height:1.25;color:#0f172a}h3{margin:0 0 6px;font-size:13px;color:#475569}p,li{color:#334155;line-height:1.52}
+.workflow-summary{padding:13px 15px;margin-bottom:13px;background:#f5f3ff;border-left:4px solid #7c3aed;border-radius:9px}.workflow-summary p{margin:0;font-size:15px}
+.context-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}.context-panel{padding:13px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:11px}.context-panel p{margin:0;font-size:13px}
+.value-section{margin-top:15px;padding-top:13px;border-top:1px solid #e2e8f0}.value-section ul{margin:6px 0 0;padding-left:21px}.value-section li{margin:4px 0;font-size:13px}
+.supporting-code{margin-top:15px;padding-top:12px;border-top:1px solid #e2e8f0}summary{cursor:pointer;color:#475569;font-weight:700;font-size:13px}.evidence-list{margin-top:10px}.evidence-item{margin:9px 0;padding:10px;background:#0f172a;border-radius:10px;overflow:hidden}.code-location{margin-bottom:7px;color:#c4b5fd;font-size:11px;font-weight:700;word-break:break-all}pre{margin:0;overflow:auto;color:#e2e8f0;font:11px/1.45 Consolas,monospace;white-space:pre}.empty-state{padding:30px;background:#fff;border-radius:16px;text-align:center}
+@media(max-width:760px){.hero{padding:20px 15px 17px}.hero h1{font-size:25px}.wrap{margin-top:12px;padding:0 12px 35px}.workflow-group{padding:12px;margin:12px 0 18px;border-radius:16px}.group-header{display:block;padding:2px 2px 10px}.group-header h2{font-size:21px}.group-count{display:inline-block;margin-top:9px}.workflow-card{display:block;padding:16px;margin:9px 0}.workflow-number{font-size:20px;margin-bottom:3px}.workflow-title{font-size:19px}.context-grid{grid-template-columns:1fr}.workflow-summary{padding:11px 12px}pre{font-size:10px}}
+</style><style id="unvibecode-customer-report-style">
+.hero{
+  padding:14px max(16px,4vw) 12px !important;
+}
+.hero h1{
+  margin:3px 0 4px !important;
+  font-size:24px !important;
+  line-height:1.12 !important;
+}
+.hero p{
+  max-width:980px !important;
+  font-size:13px !important;
+  line-height:1.35 !important;
+}
+.hero-meta{
+  margin-top:6px !important;
+  font-size:11px !important;
+}
+.wrap{
+  margin-top:12px !important;
+}
+</style>
+<style id="unvibecode-shared-theme">
+:root{--paper:#f7f6f2;--ink:#171714;--muted:#575750;--line:#35352e;--soft:#e9e8e1}
+html{scroll-behavior:smooth}body{background:var(--paper)!important;color:var(--ink)!important;font-family:Arial,Helvetica,sans-serif!important}
+a{color:inherit}.uvc-brand-bar{padding:20px 32px;border-bottom:1px solid var(--line);background:var(--paper)}.uvc-brand{font-size:24px;font-weight:800;letter-spacing:-1px;text-decoration:none;color:var(--ink)}.uvc-brand span{font-weight:400}
+h1,h2,h3,p,li,dt,dd,.eyebrow,.repository,.code-location{color:var(--ink)!important}.eyebrow,.hero-meta,.uvc-meta{font-family:Consolas,monospace!important;color:var(--muted)!important}
+.workspace,.view-toolbar,.view-tabs,.guide-item,.quick-guide,.connected-guide,.connected-cue,.cue-node,.context-sizes span,.token-help,.context-panel,.empty-state,.summary,.flaw,.structural-review,.hotspot-card,.metric,.grid section,.review-status,.scope-note{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;border-radius:0!important;box-shadow:none!important}
+.view-tab{border-radius:0!important;color:var(--ink)!important;background:var(--paper)!important;border-color:var(--line)!important}.view-tab.active,.download-link,.context-download,.context-panel a,.uvc-next-button{background:var(--ink)!important;color:var(--paper)!important;border-radius:0!important;border-color:var(--line)!important}
+.connected-cue p,.context-sizes span,.token-help p,.view-toolbar p{color:var(--muted)!important}.cue-icon,.context-sizes span.recommended{background:var(--soft)!important;border-color:var(--line)!important;color:var(--ink)!important}.cue-icon svg{stroke:var(--ink)!important}
+pre,.hotspot-code{background:var(--soft)!important;color:var(--ink)!important;border-radius:0!important}pre code{color:inherit!important}.path-graph{border-radius:0!important}.uvc-meta{font-size:12px;line-height:1.6;margin-top:8px}.uvc-report-heading{padding:28px 32px;border-bottom:1px solid var(--line)}.uvc-report-heading h1{font-size:32px;margin:0 0 8px}.uvc-report-heading p{margin:0}
+.uvc-workflow-layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1600px;margin:auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}.uvc-area-nav{position:sticky;top:0;max-height:100vh;overflow:auto;align-self:start;padding:24px 20px;border-right:1px solid var(--line)}.uvc-area-nav a{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #d4d3ca;text-decoration:none;font-size:14px}.uvc-area-nav a:hover{background:var(--soft)}.uvc-area-nav span{font:12px Consolas,monospace;color:var(--muted)}
+.uvc-workflow-layout .wrap{max-width:none;margin:0!important;padding:0;min-width:0}.workflow-group{padding:30px!important;margin:0!important;border:0!important;border-bottom:1px solid var(--line)!important;background:var(--paper)!important;border-radius:0!important}.workflow-card{padding:26px 0!important;margin:0!important;border:0!important;border-top:1px solid #bbbbae!important;background:var(--paper)!important;box-shadow:none!important;border-radius:0!important}.workflow-number{font:16px Consolas,monospace!important;color:var(--muted)!important;flex-basis:auto!important}.workflow-title{font-size:23px!important}.group-header h2{font-size:30px}.group-count{border:1px solid var(--line)!important;border-radius:0!important;background:var(--paper)!important;color:var(--ink)!important}.workflow-summary{background:transparent!important;border-left:2px solid var(--ink)!important;border-radius:0!important}.context-panel{border-radius:0!important}.supporting-code{border:1px solid #b2b2a6;border-radius:0!important;padding:14px 16px}.evidence-item pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:460px;overflow:auto}.uvc-embedded .uvc-brand-bar,.uvc-embedded .uvc-report-heading{display:none}
+#shipready-context-download,#shipready-file-details,#shipready-context-size{background:var(--paper)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important}#shipready-context-download,#shipready-file-details{border:0!important;box-shadow:none!important}#shipready-download-button{background:var(--ink)!important;color:var(--paper)!important;border-radius:0!important}#mynetwork{background:var(--paper)!important}#unvibecode-review-continue{background:var(--paper)!important;border-color:var(--line)!important;border-radius:0!important;box-shadow:none!important}
+@media(max-width:850px){.uvc-workflow-layout{grid-template-columns:1fr}.uvc-area-nav{position:static;max-height:none;display:grid;grid-template-columns:1fr 1fr;gap:0 20px;border-right:0;border-bottom:1px solid var(--line)}.uvc-area-nav>p{grid-column:1/-1}.uvc-brand-bar,.uvc-report-heading{padding:20px}.workflow-group{padding:24px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Centered loading view, above iframe while its embedded report initializes. */
+#report-stage{position:relative}
+#uvc-report-loader{position:absolute;inset:0;z-index:50;display:grid;place-items:center;background:var(--paper);text-align:center;color:var(--ink)}
+#uvc-report-loader[hidden]{display:none!important}#uvc-report-loader strong{display:block;font-size:16px}#uvc-report-loader p{font-size:12px;color:var(--muted)!important}
+.uvc-loading-spinner{display:block;width:28px;height:28px;border:2px solid var(--soft);border-top-color:var(--ink);border-radius:50%;margin:0 auto 14px;animation:uvc-spin .9s linear infinite}
+@keyframes uvc-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.uvc-loading-spinner{animation:none}}
+/* Compact output workspace; workflow cards and their sidebar are unchanged. */
+.uvc-brand-bar{padding:10px 20px;display:flex;align-items:center;justify-content:space-between}.uvc-github{font-size:12px;text-decoration:none}.uvc-run-info{right:110px!important}.uvc-brand{font-size:21px}
+body:has(.workspace){height:100vh;display:flex;flex-direction:column;overflow:hidden}
+body:has(.workspace)>main{width:100%;max-width:1600px;flex:1;min-height:0;padding:0 12px 12px;display:flex;flex-direction:column}
+.uvc-run-info{position:absolute;top:12px;left:165px;right:20px;display:flex;align-items:center;gap:14px;font-size:13px;min-width:0}.uvc-run-info>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.uvc-status{font:10px Consolas,monospace;border:1px solid var(--line);padding:3px 6px}
+.workspace{position:relative;display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;margin:0!important}.view-tabs{flex-shrink:0;padding-right:130px;flex-wrap:wrap}.view-toolbar{flex-shrink:0;min-height:0!important;padding:9px 14px!important}.view-toolbar h2{font-size:18px}.view-toolbar p{margin:3px 0!important}.report-stage{flex:1;min-height:0!important}#report-stage.connected-active:not([hidden]){display:block!important}#report-stage[hidden],#context-panel[hidden]{display:none!important}#report-frame{height:100%!important;min-height:0!important}.workspace>#context-panel{min-height:0!important;overflow:auto;flex:1}.review-status,.scope-note{flex-shrink:0}
+.uvc-help{position:absolute;right:10px;top:10px;z-index:20;font-size:12px}.uvc-help>summary{list-style:none;cursor:pointer;padding:5px;border:1px solid var(--line);background:var(--paper)}.uvc-help-panel{position:absolute;right:0;top:34px;width:min(580px,calc(100vw - 50px));max-height:65vh;overflow:auto;background:var(--paper);border:1px solid var(--line);padding:12px}.uvc-help-panel .guide-grid{display:grid;grid-template-columns:1fr!important}.uvc-help-panel .guide-item{border:0;border-bottom:1px solid #bbbbae;padding:10px}.uvc-help-panel .quick-guide{margin:0!important}.uvc-help summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media(max-width:600px){.uvc-run-info{left:145px;font-size:12px;gap:6px}.uvc-brand{font-size:19px}.view-tabs{padding-right:45px}.uvc-help>summary span{display:none}.view-tab{padding:8px!important;font-size:12px!important}}
+
+</style></head><body><div class="uvc-brand-bar"><a class="uvc-brand" href="https://financeflash.github.io/unvibecode/" target="_blank" rel="noopener">Unvibe<span>Code</span></a><a class="uvc-github" href="https://github.com/FinanceFlash/unvibecode" target="_blank" rel="noopener noreferrer">⭐ Star UnvibeCode</a></div>
+<header class="uvc-report-heading"><h1>Business Workflow Map</h1><p>Understand end-to-end business operations reconstructed from the code.</p><div class="uvc-meta">fdr-shield · 23 workflows · 10 areas</div></header>
+<div class="uvc-workflow-layout"><aside class="uvc-area-nav" aria-label="Workflow areas"><p class="eyebrow">Workflow areas</p><a href="#workflow-area-1">Fdr workflows<span>07</span></a><a href="#workflow-area-2">Submit workflows<span>03</span></a><a href="#workflow-area-3">Review Priority workflows<span>03</span></a><a href="#workflow-area-4">Live exception-inbox event streaming and related workflows<span>02</span></a><a href="#workflow-area-5">Admin workflows<span>02</span></a><a href="#workflow-area-6">Overview workflows<span>01</span></a><a href="#workflow-area-7">Public workflows<span>02</span></a><a href="#workflow-area-8">Create an Institution and invite its contact user<span>01</span></a><a href="#workflow-area-9">Data workflows<span>01</span></a><a href="#workflow-area-10">Artifact workflows<span>01</span></a></aside><main class="wrap">
+        <section class="workflow-group" id="workflow-area-1">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 1</div><h2>Fdr workflows</h2></div>
+            <div class="group-count">7 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_dea029cc4d17f41d">
+              <div class="workflow-number">01</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 1</div>
+                <h3 class="workflow-title">FDR receipt OCR field extraction</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An unknown caller supplies an image or PDF to OCR orchestration; the selected engine extracts and normalizes FDR receipt fields for return to the caller.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Obtain structured receipt details from an uploaded receipt</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR receipt fields</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Provides normalized receipt details and a field-presence confidence ratio for downstream use.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>extract_fdr_fields()</strong> <span class="implementation-location">backend/app/services/ocr_service.py · lines 19–44</span></li><li class="implementation-item"><strong>OllamaVisionEngine.extract()</strong> <span class="implementation-location">backend/app/integrations/ocr/ollama_vision_engine.py · lines 155–223</span></li><li class="implementation-item"><strong>OllamaVisionEngine._normalize_amount()</strong> <span class="implementation-location">backend/app/integrations/ocr/ollama_vision_engine.py · lines 132–153</span></li><li class="implementation-item"><strong>OllamaVisionEngine._normalize()</strong> <span class="implementation-location">backend/app/integrations/ocr/ollama_vision_engine.py · lines 102–130</span></li><li class="implementation-item"><strong>EasyOcrEngine</strong> <span class="implementation-location">backend/app/integrations/ocr/easyocr_engine.py · lines 14–19</span></li><li class="implementation-item"><strong>TesseractEngine</strong> <span class="implementation-location">backend/app/integrations/ocr/tesseract_engine.py · lines 11–16</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_03d77f97abe1cab9">
+              <div class="workflow-number">02</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 2</div>
+                <h3 class="workflow-title">FDR release/refund request and decision</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An institution requests release/refund for its FDR; an AICTE official decides, updating RefundRequest and FDR workflow state and potentially queuing an email to the institution. Capability: FDR discharge/release workflow. Actor goals: request release and record an official decision. Business object: FDR and RefundRequest. Affected counterparty: institution. Consequence: release state and decision are recorded and the institution may be notified.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Institution requests release; AICTE official approves or rejects the request.</p></section><section class="context-panel"><h3>What it produces</h3><p>RefundRequest and associated FDR</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Institution associated with the FDR</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Records a pending request and release-requested FDR state.</li><li>Records official decision and changes FDR status accordingly.</li><li>May enqueue an email decision notification.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>create_refund()</strong> <span class="implementation-location">backend/app/api/v1/refunds.py · lines 13–16</span></li><li class="implementation-item"><strong>decide_refund()</strong> <span class="implementation-location">backend/app/api/v1/refunds.py · lines 26–29</span></li><li class="implementation-item"><strong>decide()</strong> <span class="implementation-location">backend/app/services/refund_service.py · lines 36–77</span></li><li class="implementation-item"><strong>create_refund()</strong> <span class="implementation-location">backend/app/services/refund_service.py · lines 23–33</span></li><li class="implementation-item"><strong>require_roles()</strong> <span class="implementation-location">backend/app/core/deps.py · lines 51–55</span></li><li class="implementation-item"><strong>list_refunds()</strong> <span class="implementation-location">backend/app/api/v1/refunds.py · lines 19–23</span></li><li class="implementation-item"><strong>sync_legacy_status()</strong> <span class="implementation-location">backend/app/services/workflow_state_service.py · lines 95–150</span></li><li class="implementation-item"><strong>record_human_decision()</strong> <span class="implementation-location">backend/app/services/workflow_state_service.py · lines 153–169</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_d0e6c0057fac2ee2">
+              <div class="workflow-number">03</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 3</div>
+                <h3 class="workflow-title">Transition an FDR through official scrutiny</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An aicte_official transitions an FDR to an allowed status; the service synchronizes workflow state, records a decision and audit data, and may create a CorrectionRequest for a mismatch.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Record an official review outcome for an FDR</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Institution associated with the FDR; user identified by user_id</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>FDR and workflow lifecycle reflect the scrutiny outcome</li><li>Correction requests capture unresolved discrepancies after a mismatch decision</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>transition()</strong> <span class="implementation-location">backend/app/services/fdr_service.py · lines 36–65</span></li><li class="implementation-item"><strong>FDR</strong> <span class="implementation-location">backend/app/models/fdr.py · lines 9–53</span></li><li class="implementation-item"><strong>FDRStatus</strong> <span class="implementation-location">backend/app/core/enums.py · lines 25–33</span></li><li class="implementation-item"><strong>get_fdr()</strong> <span class="implementation-location">backend/app/services/fdr_service.py · lines 20–24</span></li><li class="implementation-item"><strong>create_fdr()</strong> <span class="implementation-location">backend/app/services/fdr_service.py · lines 27–33</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_19258e7118890f28">
+              <div class="workflow-number">04</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 4</div>
+                <h3 class="workflow-title">Dispatch queued FDR notifications</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>The system dispatcher claims a due DELIVER_NOTIFICATION outbox event, invokes its selected provider, then records delivery, retry, or uncertain/dead state.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>System dispatcher delivers notification work to the intended recipient</p></section><section class="context-panel"><h3>What it produces</h3><p>Notification and OutboxEvent</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Notification recipient and external delivery provider</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Communicates FDR-related alerts</li><li>Persists delivery outcomes and avoids blindly repeating an ambiguous provider call</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>dispatch_batch()</strong> <span class="implementation-location">backend/app/services/outbox_service.py · lines 63–170</span></li><li class="implementation-item"><strong>dispatch_alert()</strong> <span class="implementation-location">backend/app/services/notification_service.py · lines 26–44</span></li><li class="implementation-item"><strong>enqueue()</strong> <span class="implementation-location">backend/app/services/outbox_service.py · lines 25–43</span></li><li class="implementation-item"><strong>_send_notification()</strong> <span class="implementation-location">backend/app/services/outbox_service.py · lines 46–60</span></li><li class="implementation-item"><strong>OutboxEvent</strong> <span class="implementation-location">backend/app/models/workflow.py · lines 143–159</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_aa29c83ed4d1fa06">
+              <div class="workflow-number">05</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 5</div>
+                <h3 class="workflow-title">Institution-scoped FDR assistance</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An institution-associated user asks for FDR status, discrepancies, actions, or deadlines; the assistant queries records for that user&#x27;s institution and returns a grounded, guarded response.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Understand an FDR&#x27;s status or discrepancies, determine required actions, or view upcoming deadlines.</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR and its related WorkflowInstance, Discrepancy, and CorrectionRequest records</p></section><section class="context-panel"><h3>Who relies on it</h3><p>The institution associated with the requesting user</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Returns relevant case information and next-action guidance.</li><li>Uses server-side institution scope for record lookups.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>process_institution_message()</strong> <span class="implementation-location">backend/app/services/institution_assistant_service.py · lines 322–438</span></li><li class="implementation-item"><strong>_scoped_fdr_lookup()</strong> <span class="implementation-location">backend/app/services/institution_assistant_service.py · lines 72–84</span></li><li class="implementation-item"><strong>list_required_actions()</strong> <span class="implementation-location">backend/app/services/institution_assistant_service.py · lines 115–135</span></li><li class="implementation-item"><strong>enforce_guardrails()</strong> <span class="implementation-location">backend/app/services/institution_assistant_service.py · lines 283–315</span></li><li class="implementation-item"><strong>get_case_state()</strong> <span class="implementation-location">backend/app/services/institution_assistant_service.py · lines 87–112</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_48989a2edf582b18">
+              <div class="workflow-number">06</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 6</div>
+                <h3 class="workflow-title">Pause or resume an FDR case workflow from Command Center.</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An AICTE Official uses Command Center pause or resume tools to change an FDR workflow&#x27;s execution state; the service records and publishes the resulting workflow event, and resume may requeue execution.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Pause an eligible workflow or resume a paused workflow.</p></section><section class="context-panel"><h3>What it produces</h3><p>WorkflowInstance associated with an FDR.</p></section><section class="context-panel"><h3>Who relies on it</h3><p>AICTE Official operating on the workflow; worker queue may be affected on resume.</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Operational control over workflow execution.</li><li>A resumed workflow may be requeued for worker processing.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>pause_workflow()</strong> <span class="implementation-location">backend/app/services/workflow_action_service.py · lines 246–266</span></li><li class="implementation-item"><strong>resolve_fdr_reference()</strong> <span class="implementation-location">backend/app/services/command_tools.py · lines 120–153</span></li><li class="implementation-item"><strong>preview_pause_case()</strong> <span class="implementation-location">backend/app/services/command_tools.py · lines 637–649</span></li><li class="implementation-item"><strong>resume_workflow()</strong> <span class="implementation-location">backend/app/services/workflow_action_service.py · lines 269–292</span></li><li class="implementation-item"><strong>PauseCaseArgs</strong> <span class="implementation-location">backend/app/services/command_tools.py · lines 95–97</span></li><li class="implementation-item"><strong>execute_pause_case()</strong> <span class="implementation-location">backend/app/services/command_tools.py · lines 652–656</span></li><li class="implementation-item"><strong>preview_resume_case()</strong> <span class="implementation-location">backend/app/services/command_tools.py · lines 659–671</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_9cdcc2cdae9b2b12">
+              <div class="workflow-number">07</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 7</div>
+                <h3 class="workflow-title">ML governance for FDR data gates and deterministic advisory recommendations</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A user of the MLGovernance interface confirms an action and the UI sends a request to evaluate/register Gate 0, generate synthetic demo samples, or run deterministic advisory recommendations; backend effects are not visible here.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Review data readiness, create synthetic demonstration examples, or request advisory predictions.</p></section><section class="context-panel"><h3>What it produces</h3><p>Gate 0 assessment, synthetic demo data, or advisory predictions</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Unknown user of the MLGovernance page; FDR case state is represented as not intended to change by the UI&#x27;s confirmation text.</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Communicates data-gate status and registry information.</li><li>Offers synthetic examples for demo/pipeline wiring.</li><li>Presents deterministic recommendations as advisory rather than case decisions.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>MLDataGates()</strong> <span class="implementation-location">frontend/src/pages/admin/MLGovernance.jsx · lines 99–121</span></li><li class="implementation-item"><strong>MLGovernance()</strong> <span class="implementation-location">frontend/src/pages/admin/MLGovernance.jsx · lines 123–128</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-2">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 2</div><h2>Submit workflows</h2></div>
+            <div class="group-count">3 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_19152de0a1054117">
+              <div class="workflow-number">08</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 8</div>
+                <h3 class="workflow-title">Submit FDR</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An institution user selects an FDR receipt scan, reviews or enters receipt fields, and submits the scan and declared field data to the FDR API for verification workflow processing.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Upload a receipt, verify extracted fields, and submit it</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR and attached receipt scan</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Institution; downstream verification workflow</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Creates a request to submit the receipt and field data for verification</li><li>On success, displays the returned case reference and lifecycle/status value</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>menuForRole()</strong> <span class="implementation-location">mobile/src/lib/screens.js · lines 3–8</span></li><li class="implementation-item"><strong>PortalLayout()</strong> <span class="implementation-location">mobile/src/app/(portal)/_layout.js · lines 7–33</span></li><li class="implementation-item"><strong>submit()</strong> <span class="implementation-location">mobile/src/screens/UploadFdrScreen.js · lines 109–133</span></li><li class="implementation-item"><strong>UploadFdrScreen()</strong> <span class="implementation-location">mobile/src/screens/UploadFdrScreen.js · lines 26–185</span></li><li class="implementation-item"><strong>pickFile()</strong> <span class="implementation-location">mobile/src/screens/UploadFdrScreen.js · lines 38–64</span></li><li class="implementation-item"><strong>extract()</strong> <span class="implementation-location">mobile/src/screens/UploadFdrScreen.js · lines 66–87</span></li><li class="implementation-item"><strong>UploadRoute()</strong> <span class="implementation-location">mobile/src/app/(portal)/upload.js · lines 3–5</span></li><li class="implementation-item"><strong>rawRequest()</strong> <span class="implementation-location">mobile/src/lib/api.js · lines 40–57</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_d25ae7734bafe8ea">
+              <div class="workflow-number">09</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 9</div>
+                <h3 class="workflow-title">Submit an FDR for verification</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>Institution portal user reviews and confirms FDR fields, then submits the FDR scan and fields to the API; the interface reports that verification has started.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Submit a scan with reviewed and confirmed FDR details</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR and FDR scan</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Institution portal user; downstream reviewer is implied by the verification workflow messaging</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>An FDR submission is sent to the API</li><li>The interface transitions to display an FDR reference and verification report</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>UploadFdr()</strong> <span class="implementation-location">frontend/src/pages/institution/UploadFdr.jsx · lines 10–15</span></li><li class="implementation-item"><strong>submit()</strong> <span class="implementation-location">frontend/src/components/fdr/FdrUploadForm.jsx · lines 46–56</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_7818163e21b9d9a3">
+              <div class="workflow-number">10</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 10</div>
+                <h3 class="workflow-title">Submit an AICTE Official application</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An AICTE Official applicant submits registration details through the public registration page to the backend registration endpoint; the UI reports that sign-in follows approval.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Apply to become an AICTE Official</p></section><section class="context-panel"><h3>What it produces</h3><p>Official registration application</p></section><section class="context-panel"><h3>Who relies on it</h3><p>AICTE Official applicant; Super Admin is identified as approver in the UI message</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Registration data is submitted to the backend.</li><li>The UI says sign-in is available after approval; backend processing and state change are not included in this fragment.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>OfficialRegister()</strong> <span class="implementation-location">frontend/src/pages/auth/AuthPages.jsx · lines 25–38</span></li><li class="implementation-item"><strong>AppRoutes()</strong> <span class="implementation-location">frontend/src/routes/AppRoutes.jsx · lines 60–71</span></li><li class="implementation-item"><strong>submit()</strong> <span class="implementation-location">frontend/src/pages/auth/AuthPages.jsx · lines 27–36</span></li><li class="implementation-item"><strong>registerInstitution()</strong> <span class="implementation-location">frontend/src/api/auth.api.js · lines 10–10</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-3">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 3</div><h2>Review Priority workflows</h2></div>
+            <div class="group-count">3 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_e299c9199058d3f3">
+              <div class="workflow-number">11</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 11</div>
+                <h3 class="workflow-title">Train and evaluate a review-priority model candidate</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An admin submits a labelled CSV; the API validates it and queues a training job, then a Celery worker trains/evaluates a review-priority candidate, stores its artifact and registry record, and updates job status.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Submit a validated labelled dataset for asynchronous candidate training</p></section><section class="context-panel"><h3>What it produces</h3><p>MLTrainingJob and review-priority model artifact</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Admin requester and internal training worker</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Provides a recorded, evaluated candidate artifact for later operational consideration</li><li>Captures job and model-version state and training audit events</li><li>A queued job can be marked FAILED if dispatch or worker processing fails</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>start_intelligence_training()</strong> <span class="implementation-location">backend/app/api/v1/admin.py · lines 58–113</span></li><li class="implementation-item"><strong>train_review_priority_task()</strong> <span class="implementation-location">backend/app/workers/tasks_ml.py · lines 18–23</span></li><li class="implementation-item"><strong>_train_review_priority()</strong> <span class="implementation-location">backend/app/workers/tasks_ml.py · lines 26–103</span></li><li class="implementation-item"><strong>train_and_evaluate()</strong> <span class="implementation-location">backend/app/services/intelligence_training.py · lines 117–183</span></li><li class="implementation-item"><strong>validate_training_rows()</strong> <span class="implementation-location">backend/app/services/intelligence_training.py · lines 99–114</span></li><li class="implementation-item"><strong>promote_artifact()</strong> <span class="implementation-location">backend/app/services/intelligence_training.py · lines 186–230</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_1df8ee5645b366e3">
+              <div class="workflow-number">12</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 12</div>
+                <h3 class="workflow-title">Promote review-priority model artifacts</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An administrative caller confirms promotion of a candidate review-priority artifact; the endpoint promotes it, supersedes prior active registry rows, marks the candidate active, and records audit events.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Make a registered candidate artifact operational</p></section><section class="context-panel"><h3>What it produces</h3><p>MLModelVersion and its artifact files</p></section><section class="context-panel"><h3>Who relies on it</h3><p>FDR review workflow consumers of the active artifact</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Selects the active review-priority artifact</li><li>Records prior active artifacts as superseded and writes promotion audit events</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>promote_intelligence_artifact()</strong> <span class="implementation-location">backend/app/api/v1/admin.py · lines 162–217</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_b91853d36d77c48e">
+              <div class="workflow-number">13</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 13</div>
+                <h3 class="workflow-title">Run and persist fallback advisory predictions</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An administrative caller requests bounded fallback predictions; the service derives advisory results for selected FDR/workflow/system cases, skips records with existing dedupe keys, persists new MLPrediction rows, and records the batch.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Request advisory predictions for selected use cases</p></section><section class="context-panel"><h3>What it produces</h3><p>MLPrediction records associated with FDR, WorkflowInstance, or system threshold breaches</p></section><section class="context-panel"><h3>Who relies on it</h3><p>FDR review and operations users consuming recommendations</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Stores fallback recommendation records for later retrieval</li><li>The response states recommendations do not alter authorization or case state</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>ml_run_fallbacks()</strong> <span class="implementation-location">backend/app/api/v1/admin.py · lines 413–417</span></li><li class="implementation-item"><strong>run_fallback_predictions()</strong> <span class="implementation-location">backend/app/services/ml_service.py · lines 311–362</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-4">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 4</div><h2>Live exception-inbox event streaming and related workflows</h2></div>
+            <div class="group-count">2 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_bab7ae806640382e">
+              <div class="workflow-number">14</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 14</div>
+                <h3 class="workflow-title">Live exception-inbox event streaming</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An AICTE official or admin connects to the exception stream; persisted exception events are replayed and subsequent inbox events are streamed while the current user session and role remain authorized.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Receive exception events and updates through a reconnectable stream.</p></section><section class="context-panel"><h3>What it produces</h3><p>WorkflowEvent entries in the exceptions inbox</p></section><section class="context-panel"><h3>Who relies on it</h3><p>AICTE official or admin consuming the event stream</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Provides historical replay after the supplied event cursor.</li><li>Delivers later inbox events as server-sent events while authorization remains valid.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>stream_exceptions()</strong> <span class="implementation-location">backend/app/api/v1/workflows.py · lines 369–424</span></li><li class="implementation-item"><strong>stream_exceptions.inbox_stream()</strong> <span class="implementation-location">backend/app/api/v1/workflows.py · lines 381–418</span></li><li class="implementation-item"><strong>publish()</strong> <span class="implementation-location">backend/app/services/workflow_events.py · lines 15–53</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_bdc8769ec2dbb0b8">
+              <div class="workflow-number">15</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 15</div>
+                <h3 class="workflow-title">Replay workflow from checkpoint</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An AICTE Official requests replay of a workflow from a checkpoint; eligible replay metadata is persisted, the workflow is set to retrying, and a wake event is queued.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Reprocess workflow work from a selected checkpoint</p></section><section class="context-panel"><h3>What it produces</h3><p>WorkflowInstance and WorkflowCheckpoint</p></section><section class="context-panel"><h3>Who relies on it</h3><p>FDR case workflow</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>A previously executed workflow node can be replayed when eligibility conditions are met.</li><li>The request is queued for workflow processing and its reason and actor are recorded.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>replay_workflow()</strong> <span class="implementation-location">backend/app/api/v1/workflows.py · lines 254–260</span></li><li class="implementation-item"><strong>replay_from_checkpoint()</strong> <span class="implementation-location">backend/app/services/workflow_state_service.py · lines 209–273</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-5">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 5</div><h2>Admin workflows</h2></div>
+            <div class="group-count">2 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_4f4aa36b5f117302">
+              <div class="workflow-number">16</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 16</div>
+                <h3 class="workflow-title">Initial Super Admin account bootstrap</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A requester submits initial Super Admin setup data to the public registration route; the service validates setup credentials and creates an active Super Admin User with an audit record.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Register the initial Super Admin account</p></section><section class="context-panel"><h3>What it produces</h3><p>User account</p></section><section class="context-panel"><h3>Who relies on it</h3><p>The newly created Super Admin</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Establishes an active administrator account for initial system administration</li><li>Records the registration in the audit trail</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>register_initial_super_admin()</strong> <span class="implementation-location">backend/app/api/v1/auth.py · lines 254–269</span></li><li class="implementation-item"><strong>register_initial_super_admin()</strong> <span class="implementation-location">backend/app/services/super_admin_setup_service.py · lines 32–64</span></li><li class="implementation-item"><strong>acquire_bootstrap_lock()</strong> <span class="implementation-location">backend/app/services/super_admin_setup_service.py · lines 20–29</span></li><li class="implementation-item"><strong>SuperAdminSetupRequest</strong> <span class="implementation-location">backend/app/schemas/super_admin_setup.py · lines 5–11</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_f53caee92a3debdf">
+              <div class="workflow-number">17</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 17</div>
+                <h3 class="workflow-title">Admin operational recovery of dead-letter outbox jobs</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An administrator submits an admin operations command to requeue a dead OutboxEvent; after confirmation, the event is reset to pending and an audit record is written.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Requeue a specified dead outbox event for another delivery attempt.</p></section><section class="context-panel"><h3>What it produces</h3><p>OutboxEvent</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Administrator and the system&#x27;s outbox processing workflow</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Makes a dead-letter event pending again for retry.</li><li>Records the administrative status change in the audit service.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>process_admin_ops_command()</strong> <span class="implementation-location">backend/app/services/admin_ops_service.py · lines 492–552</span></li><li class="implementation-item"><strong>requeue_failed_job()</strong> <span class="implementation-location">backend/app/services/admin_ops_service.py · lines 382–418</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-6">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 6</div><h2>Overview workflows</h2></div>
+            <div class="group-count">1 workflow</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_c7c897cc1426a688">
+              <div class="workflow-number">18</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 18</div>
+                <h3 class="workflow-title">Bureau security-deposit portfolio overview</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>The bureau dashboard loads dashboard metrics and filtered FDR records, then renders portfolio charts and a trust matrix for review.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Review portfolio aggregates and inspect matching FDR records</p></section><section class="context-panel"><h3>What it produces</h3><p>Bureau dashboard metrics and FDR records</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Displays portfolio totals, maturity trends, bank values, trust status, and filtered case rows.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>BureauDashboard()</strong> <span class="implementation-location">frontend/src/pages/bureau/BureauDashboard.jsx · lines 11–32</span></li><li class="implementation-item"><strong>TrustMatrixTable()</strong> <span class="implementation-location">frontend/src/components/fdr/TrustMatrixTable.jsx · lines 7–23</span></li><li class="implementation-item"><strong>useBureauDashboard()</strong> <span class="implementation-location">frontend/src/hooks/useDashboard.js · lines 3–6</span></li><li class="implementation-item"><strong>useInstitutionDashboard()</strong> <span class="implementation-location">frontend/src/hooks/useDashboard.js · lines 8–11</span></li><li class="implementation-item"><strong>submitFdr()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 2–2</span></li><li class="implementation-item"><strong>listFdrs()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 3–3</span></li><li class="implementation-item"><strong>getFdr()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 4–4</span></li><li class="implementation-item"><strong>updateFdrStatus()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 5–5</span></li><li class="implementation-item"><strong>requestRenewal()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 6–6</span></li><li class="implementation-item"><strong>getPresignedUrl()</strong> <span class="implementation-location">frontend/src/api/fdr.api.js · lines 7–7</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-7">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 7</div><h2>Public workflows</h2></div>
+            <div class="group-count">2 workflows</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_cd20599c02b4b835">
+              <div class="workflow-number">19</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 19</div>
+                <h3 class="workflow-title">Present the NidhiTrack public overview</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A public visitor opens PublicLandingPage; the page renders FDR lifecycle information and navigation to sign in or download the app.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Understand the portal and navigate to a workspace entry point</p></section><section class="context-panel"><h3>What it produces</h3><p>FDR lifecycle tracking information</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Public visitor</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Explains receipt, verification, decision, and maturity concepts</li><li>Provides paths to sign-in and APK download</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>PublicLandingPage()</strong> <span class="implementation-location">frontend/src/pages/PublicLandingPage.jsx · lines 50–214</span></li></ul></details>
+              </div>
+            </article>
+            <article class="workflow-card" data-workflow-id="business_path_3820ba54287d611c">
+              <div class="workflow-number">20</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 20</div>
+                <h3 class="workflow-title">Review public registration applications</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A permitted reviewer decides or overrides a public Institution or AICTE Official registration; account and, for Institution applications, Institution status are updated, with notification and audit recording.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Approve or reject an Institution or AICTE Official registration</p></section><section class="context-panel"><h3>What it produces</h3><p>User registration application and associated Institution</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Applicant User; associated Institution when the application role is Institution</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Accepted applications are activated; rejected applications are marked rejected and inactive.</li><li>The applicant receives an email and the decision is recorded.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>decide_registration()</strong> <span class="implementation-location">backend/app/services/user_admin_service.py · lines 165–217</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-8">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 8</div><h2>Create an Institution and invite its contact user</h2></div>
+            <div class="group-count">1 workflow</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_ec3a5a1ae602e2bd">
+              <div class="workflow-number">21</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 21</div>
+                <h3 class="workflow-title">Create an Institution and invite its contact user</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>An actor creates an active Institution, then creates an associated invited user and records an audit event.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Register an Institution and provide its contact an invitation</p></section><section class="context-panel"><h3>What it produces</h3><p>Institution and User</p></section><section class="context-panel"><h3>Who relies on it</h3><p>Institution contact user</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>The Institution is created active and its contact user is created in invited status.</li><li>An invitation email and audit record are produced.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>create_institution()</strong> <span class="implementation-location">backend/app/services/institution_service.py · lines 16–23</span></li><li class="implementation-item"><strong>create_user()</strong> <span class="implementation-location">backend/app/services/user_admin_service.py · lines 31–45</span></li><li class="implementation-item"><strong>_invite()</strong> <span class="implementation-location">backend/app/services/user_admin_service.py · lines 24–28</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-9">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 9</div><h2>Data workflows</h2></div>
+            <div class="group-count">1 workflow</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_7439f0c81310c76c">
+              <div class="workflow-number">22</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 22</div>
+                <h3 class="workflow-title">Generate synthetic demonstration data</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A caller supplies count and seed to generate and persist synthetic ML demonstration samples and demo-only model-version records, then receive batch metadata.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Populate demo samples for configured ML use cases without training models</p></section><section class="context-panel"><h3>What it produces</h3><p>MLDemoSample batch and MLModelVersion records</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Creates synthetic demonstration data and associated demo-only metadata.</li><li>Explicitly reports that training was not performed and metrics are not real evaluation.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>generate_synthetic_demo_data()</strong> <span class="implementation-location">backend/app/services/ml_service.py · lines 216–239</span></li><li class="implementation-item"><strong>_demo_features()</strong> <span class="implementation-location">backend/app/services/ml_service.py · lines 197–213</span></li></ul></details>
+              </div>
+            </article></div>
+        </section>
+        <section class="workflow-group" id="workflow-area-10">
+          <header class="group-header">
+            <div><div class="eyebrow">Workflow area 10</div><h2>Artifact workflows</h2></div>
+            <div class="group-count">1 workflow</div>
+          </header>
+          <div class="group-paths">
+            <article class="workflow-card" data-workflow-id="business_path_eb20b38ae7248d45">
+              <div class="workflow-number">23</div>
+              <div class="workflow-content">
+                <div class="eyebrow">Workflow 23</div>
+                <h3 class="workflow-title">Create a PostgreSQL backup artifact.</h3>
+                <section class="workflow-summary"><h3>What this workflow does</h3><p>A CLI operator invokes the backup subcommand; the utility creates an exclusive PostgreSQL custom-format archive and a SHA-256 checksum sidecar.</p></section>
+                <div class="context-grid"><section class="context-panel"><h3>Purpose</h3><p>Preserve a database snapshot as a private backup file.</p></section><section class="context-panel"><h3>What it produces</h3><p>PostgreSQL database and backup archive</p></section><section class="context-panel"><h3>Who relies on it</h3><p>CLI operator / deployment owner</p></section></div>
+                <section class="value-section"><h3>Why this workflow matters</h3><ul><li>Produces a backup archive with a verifiable digest.</li><li>The utility does not overwrite an existing archive path; failed backup execution removes the partial archive.</li></ul></section>
+                <details class="supporting-code"><summary>Implementation references</summary><ul class="evidence-list"><li class="implementation-item"><strong>main()</strong> <span class="implementation-location">backend/scripts/postgres_backup.py · lines 89–109</span></li><li class="implementation-item"><strong>backup()</strong> <span class="implementation-location">backend/scripts/postgres_backup.py · lines 40–58</span></li><li class="implementation-item"><strong>_connection_args()</strong> <span class="implementation-location">backend/scripts/postgres_backup.py · lines 21–30</span></li><li class="implementation-item"><strong>_sha256()</strong> <span class="implementation-location">backend/scripts/postgres_backup.py · lines 33–37</span></li></ul></details>
+              </div>
+            </article></div>
+        </section></main></div>
+<style id="unvibecode-review-continue-style">
+#unvibecode-review-continue{
+  width:min(1180px,calc(100% - 32px));
+  margin:26px auto 18px;
+  padding:16px 18px;
+  border:1px solid #dbe3ee;
+  border-radius:12px;
+  background:#f8fafc;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:#0f172a;
+  font-family:Segoe UI,Arial,sans-serif;
+}
+#unvibecode-review-continue .uvc-next-kicker{
+  margin:0 0 3px;
+  color:#64748b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+#unvibecode-review-continue .uvc-next-copy{
+  margin:0;
+  color:#475569;
+  font-size:13px;
+  line-height:1.4;
+}
+#unvibecode-review-continue .uvc-next-button{
+  appearance:none;
+  border:0;
+  border-radius:9px;
+  background:#4f46e5;
+  color:#fff;
+  padding:10px 14px;
+  font:700 13px/1.2 Segoe UI,Arial,sans-serif;
+  cursor:pointer;
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  #unvibecode-review-continue{align-items:stretch;flex-direction:column}
+  #unvibecode-review-continue .uvc-next-button{width:100%}
+}
+</style>
+<section id="unvibecode-review-continue" aria-label="Continue your review">
+  <div>
+    <p class="uvc-next-kicker">Continue your review</p>
+    <p class="uvc-next-copy">Structured graph of your codebase linking different files and symbols.</p>
+  </div>
+  <button class="uvc-next-button" type="button" data-target="connected-code">Connected Code →</button>
+</section>
+<script>
+(function(){
+  const section = document.getElementById('unvibecode-review-continue');
+  if (!section) return;
+  const button = section.querySelector('[data-target]');
+  if (!button) return;
+  if (new URLSearchParams(window.location.search).get('early') === '1') {
+    button.setAttribute('data-target', 'llm-context');
+    button.textContent = 'LLM Context →';
+    section.querySelector('.uvc-next-copy').textContent = 'Download repository context for LLM or API analysis.';
+  }
+  button.addEventListener('click', function(){
+    const target = button.getAttribute('data-target');
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'unvibecode-select-view',
+        target: target
+      }, '*');
+      return;
+    }
+    window.location.href = '00_unvibecode_results.html#' + encodeURIComponent(target);
+  });
+})();
+</script>
+
+<script>if(window.self!==window.top)document.documentElement.classList.add("uvc-embedded");</script></body></html>

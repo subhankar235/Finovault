@@ -1,0 +1,695 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UnvibeCode Business Risk Findings</title>
+<style>body{margin:0;background:#f8fafc;color:#0f172a;font:16px/1.55 Inter,Segoe UI,Arial,sans-serif}main{max-width:1180px;margin:auto;padding:38px 24px 80px}h1{font-size:36px;margin:0 0 8px}h2{font-size:25px}h3{font-size:16px;margin-bottom:6px}p,li,td,dd{overflow-wrap:anywhere}.summary,.flaw,.structural-review{background:white;border:1px solid #e2e8f0;border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 8px 30px rgba(15,23,42,.05)}.critical{border-left:7px solid #991b1b}.high{border-left:7px solid #c2410c}.medium{border-left:7px solid #a16207}.badge,.structural-badge{display:inline-block;background:#0f172a;color:white;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}.structural-badge{background:#4338ca}.bottom{font-size:19px;font-weight:600}.metrics{display:flex;gap:14px;flex-wrap:wrap}.metric{background:#e2e8f0;border-radius:12px;padding:12px 16px;min-width:120px}.metric strong{display:block;font-size:25px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid section{background:#f1f5f9;padding:14px;border-radius:10px}dl{display:grid;grid-template-columns:190px 1fr;gap:8px 16px}dt{font-weight:700}dd{margin:0}.graph-scroll{width:100%;overflow-x:auto;padding-bottom:8px}.path-graph{display:block;width:1500px;max-width:none;height:auto;background:white;border:1px solid #e2e8f0;border-radius:16px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #e2e8f0;padding:8px}summary{cursor:pointer;font-weight:700}.hotspot-card{margin-top:16px;padding:18px;background:#f8fafc;border:1px solid #dbe3f5;border-left:5px solid #4f46e5;border-radius:12px}.hotspot-card>h3{font-size:19px;margin:9px 0}.hotspot-code{margin-top:12px;padding:12px;background:#0f172a;border-radius:10px;overflow:hidden}.code-location{margin-bottom:8px;color:#c4b5fd;font-size:12px;font-weight:700}pre{margin:0;overflow:auto;color:#e2e8f0;font:12px/1.5 Consolas,monospace;white-space:pre}.hotspot-details{margin-top:14px}@media(max-width:760px){main{padding:24px 12px 50px}h1{font-size:29px}.grid{grid-template-columns:1fr}dl{grid-template-columns:1fr}.summary,.flaw,.structural-review{padding:17px}.path-graph{width:1200px}pre{font-size:11px}}</style><style id="unvibecode-customer-report-style">
+main{
+  padding-top:22px !important;
+}
+main > h1{
+  margin-bottom:4px !important;
+  font-size:30px !important;
+}
+main > p{
+  margin-top:0 !important;
+}
+</style>
+<style id="unvibecode-shared-theme">
+:root{--paper:#f7f6f2;--ink:#171714;--muted:#575750;--line:#35352e;--soft:#e9e8e1}
+html{scroll-behavior:smooth}body{background:var(--paper)!important;color:var(--ink)!important;font-family:Arial,Helvetica,sans-serif!important}
+a{color:inherit}.uvc-brand-bar{padding:20px 32px;border-bottom:1px solid var(--line);background:var(--paper)}.uvc-brand{font-size:24px;font-weight:800;letter-spacing:-1px;text-decoration:none;color:var(--ink)}.uvc-brand span{font-weight:400}
+h1,h2,h3,p,li,dt,dd,.eyebrow,.repository,.code-location{color:var(--ink)!important}.eyebrow,.hero-meta,.uvc-meta{font-family:Consolas,monospace!important;color:var(--muted)!important}
+.workspace,.view-toolbar,.view-tabs,.guide-item,.quick-guide,.connected-guide,.connected-cue,.cue-node,.context-sizes span,.token-help,.context-panel,.empty-state,.summary,.flaw,.structural-review,.hotspot-card,.metric,.grid section,.review-status,.scope-note{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;border-radius:0!important;box-shadow:none!important}
+.view-tab{border-radius:0!important;color:var(--ink)!important;background:var(--paper)!important;border-color:var(--line)!important}.view-tab.active,.download-link,.context-download,.context-panel a,.uvc-next-button{background:var(--ink)!important;color:var(--paper)!important;border-radius:0!important;border-color:var(--line)!important}
+.connected-cue p,.context-sizes span,.token-help p,.view-toolbar p{color:var(--muted)!important}.cue-icon,.context-sizes span.recommended{background:var(--soft)!important;border-color:var(--line)!important;color:var(--ink)!important}.cue-icon svg{stroke:var(--ink)!important}
+pre,.hotspot-code{background:var(--soft)!important;color:var(--ink)!important;border-radius:0!important}pre code{color:inherit!important}.path-graph{border-radius:0!important}.uvc-meta{font-size:12px;line-height:1.6;margin-top:8px}.uvc-report-heading{padding:28px 32px;border-bottom:1px solid var(--line)}.uvc-report-heading h1{font-size:32px;margin:0 0 8px}.uvc-report-heading p{margin:0}
+.uvc-workflow-layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1600px;margin:auto;border-left:1px solid var(--line);border-right:1px solid var(--line)}.uvc-area-nav{position:sticky;top:0;max-height:100vh;overflow:auto;align-self:start;padding:24px 20px;border-right:1px solid var(--line)}.uvc-area-nav a{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #d4d3ca;text-decoration:none;font-size:14px}.uvc-area-nav a:hover{background:var(--soft)}.uvc-area-nav span{font:12px Consolas,monospace;color:var(--muted)}
+.uvc-workflow-layout .wrap{max-width:none;margin:0!important;padding:0;min-width:0}.workflow-group{padding:30px!important;margin:0!important;border:0!important;border-bottom:1px solid var(--line)!important;background:var(--paper)!important;border-radius:0!important}.workflow-card{padding:26px 0!important;margin:0!important;border:0!important;border-top:1px solid #bbbbae!important;background:var(--paper)!important;box-shadow:none!important;border-radius:0!important}.workflow-number{font:16px Consolas,monospace!important;color:var(--muted)!important;flex-basis:auto!important}.workflow-title{font-size:23px!important}.group-header h2{font-size:30px}.group-count{border:1px solid var(--line)!important;border-radius:0!important;background:var(--paper)!important;color:var(--ink)!important}.workflow-summary{background:transparent!important;border-left:2px solid var(--ink)!important;border-radius:0!important}.context-panel{border-radius:0!important}.supporting-code{border:1px solid #b2b2a6;border-radius:0!important;padding:14px 16px}.evidence-item pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:460px;overflow:auto}.uvc-embedded .uvc-brand-bar,.uvc-embedded .uvc-report-heading{display:none}
+#shipready-context-download,#shipready-file-details,#shipready-context-size{background:var(--paper)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important}#shipready-context-download,#shipready-file-details{border:0!important;box-shadow:none!important}#shipready-download-button{background:var(--ink)!important;color:var(--paper)!important;border-radius:0!important}#mynetwork{background:var(--paper)!important}#unvibecode-review-continue{background:var(--paper)!important;border-color:var(--line)!important;border-radius:0!important;box-shadow:none!important}
+@media(max-width:850px){.uvc-workflow-layout{grid-template-columns:1fr}.uvc-area-nav{position:static;max-height:none;display:grid;grid-template-columns:1fr 1fr;gap:0 20px;border-right:0;border-bottom:1px solid var(--line)}.uvc-area-nav>p{grid-column:1/-1}.uvc-brand-bar,.uvc-report-heading{padding:20px}.workflow-group{padding:24px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Centered loading view, above iframe while its embedded report initializes. */
+#report-stage{position:relative}
+#uvc-report-loader{position:absolute;inset:0;z-index:50;display:grid;place-items:center;background:var(--paper);text-align:center;color:var(--ink)}
+#uvc-report-loader[hidden]{display:none!important}#uvc-report-loader strong{display:block;font-size:16px}#uvc-report-loader p{font-size:12px;color:var(--muted)!important}
+.uvc-loading-spinner{display:block;width:28px;height:28px;border:2px solid var(--soft);border-top-color:var(--ink);border-radius:50%;margin:0 auto 14px;animation:uvc-spin .9s linear infinite}
+@keyframes uvc-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.uvc-loading-spinner{animation:none}}
+/* Compact output workspace; workflow cards and their sidebar are unchanged. */
+.uvc-brand-bar{padding:10px 20px;display:flex;align-items:center;justify-content:space-between}.uvc-github{font-size:12px;text-decoration:none}.uvc-run-info{right:110px!important}.uvc-brand{font-size:21px}
+body:has(.workspace){height:100vh;display:flex;flex-direction:column;overflow:hidden}
+body:has(.workspace)>main{width:100%;max-width:1600px;flex:1;min-height:0;padding:0 12px 12px;display:flex;flex-direction:column}
+.uvc-run-info{position:absolute;top:12px;left:165px;right:20px;display:flex;align-items:center;gap:14px;font-size:13px;min-width:0}.uvc-run-info>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.uvc-status{font:10px Consolas,monospace;border:1px solid var(--line);padding:3px 6px}
+.workspace{position:relative;display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;margin:0!important}.view-tabs{flex-shrink:0;padding-right:130px;flex-wrap:wrap}.view-toolbar{flex-shrink:0;min-height:0!important;padding:9px 14px!important}.view-toolbar h2{font-size:18px}.view-toolbar p{margin:3px 0!important}.report-stage{flex:1;min-height:0!important}#report-stage.connected-active:not([hidden]){display:block!important}#report-stage[hidden],#context-panel[hidden]{display:none!important}#report-frame{height:100%!important;min-height:0!important}.workspace>#context-panel{min-height:0!important;overflow:auto;flex:1}.review-status,.scope-note{flex-shrink:0}
+.uvc-help{position:absolute;right:10px;top:10px;z-index:20;font-size:12px}.uvc-help>summary{list-style:none;cursor:pointer;padding:5px;border:1px solid var(--line);background:var(--paper)}.uvc-help-panel{position:absolute;right:0;top:34px;width:min(580px,calc(100vw - 50px));max-height:65vh;overflow:auto;background:var(--paper);border:1px solid var(--line);padding:12px}.uvc-help-panel .guide-grid{display:grid;grid-template-columns:1fr!important}.uvc-help-panel .guide-item{border:0;border-bottom:1px solid #bbbbae;padding:10px}.uvc-help-panel .quick-guide{margin:0!important}.uvc-help summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media(max-width:600px){.uvc-run-info{left:145px;font-size:12px;gap:6px}.uvc-brand{font-size:19px}.view-tabs{padding-right:45px}.uvc-help>summary span{display:none}.view-tab{padding:8px!important;font-size:12px!important}}
+
+</style></head>
+<body><div class="uvc-brand-bar"><a class="uvc-brand" href="https://financeflash.github.io/unvibecode/" target="_blank" rel="noopener">Unvibe<span>Code</span></a><a class="uvc-github" href="https://github.com/FinanceFlash/unvibecode" target="_blank" rel="noopener noreferrer">⭐ Star UnvibeCode</a></div><main><h1>fdr-shield business flaw report</h1><p>Business-heavy findings reconstructed from connected code paths.</p>
+<section class="summary"><h2>Summary</h2><p class="bottom">No business flaw passed the business-impact gate in the analyzed paths.</p><div class="metrics"><div class="metric"><strong>0</strong>flaws</div><div class="metric"><strong>0</strong>strong evidence</div><div class="metric"><strong>0</strong>supported evidence</div></div></section>
+<h2>Business paths</h2><div class="graph-scroll"><img class="path-graph" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDE1MDAgMjUwIj4KPGRlZnM+PG1hcmtlciBpZD0iYXJyb3ciIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSIxMCIgcmVmWD0iOSIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNMCwwIEwwLDYgTDksMyB6IiBmaWxsPSIjNjQ3NDhiIi8+PC9tYXJrZXI+CjxzdHlsZT4udGl0bGV7Zm9udDo3MDAgMjRweCBBcmlhbDtmaWxsOiMwZjE3MmF9LmxhbmV7Zm9udDo3MDAgMTZweCBBcmlhbDtmaWxsOiMwZjE3MmF9Lm5vZGV7Zm9udDo2MDAgMTRweCBBcmlhbDtmaWxsOiMwZjE3MmF9Lm1ldGF7Zm9udDoxMi41cHggQXJpYWw7ZmlsbDojNDc1NTY5fS5lZGdle3N0cm9rZTojNjQ3NDhiO3N0cm9rZS13aWR0aDoyO21hcmtlci1lbmQ6dXJsKCNhcnJvdyl9LmltcGFjdHtzdHJva2U6I2RjMjYyNjtzdHJva2Utd2lkdGg6MzttYXJrZXItZW5kOnVybCgjYXJyb3cpfTwvc3R5bGU+PC9kZWZzPgo8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmYWZjIi8+Cjx0ZXh0IHg9IjQwIiB5PSI0MCIgY2xhc3M9InRpdGxlIj5mZHItc2hpZWxkIOKAlCBidXNpbmVzcyBmbGF3IHBhdGhzPC90ZXh0Pgo8dGV4dCB4PSI0MCIgeT0iOTUiIGNsYXNzPSJsYW5lIj5ObyBidXNpbmVzcyBmbGF3IHBhc3NlZCB0aGUgYnVzaW5lc3MtaW1wYWN0IGdhdGUuPC90ZXh0Pgo8L3N2Zz4=" alt="Business flaw paths"></div><h2>Business flaws</h2><article class="flaw"><h2>No business flaw passed the business-impact gate.</h2></article>
+
+<section class="structural-review">
+  <h2>Additional code areas worth reviewing</h2>
+  <p>These code areas met strict structural rules for concentrated complexity or strong code connections. They are review priorities, not confirmed business flaws.</p>
+  
+<article class="hotspot-card">
+  <div class="structural-badge">STRUCTURAL REVIEW</div>
+  <h3>1. Complex decision function in chunk-I2MCD6RR.js</h3>
+  <p>A heavily branched decision function is used on an important execution surface. A large amount of behavior is concentrated in one module.</p>
+  <h3>Why it was selected</h3><ul><li>&quot;node_modules/react-dom/cjs/react-dom.development.js&quot;: 3134 decisions with nesting depth 13</li><li>21629 source lines and 969 functions/classes</li></ul>
+  <h3>Connected source files</h3><ul><li>frontend/.vite/deps/chunk-4MBMRILA.js</li><li>frontend/.vite/deps/chunk-E55NSNTN.js</li><li>frontend/.vite/deps/react-dom_client.js</li><li>frontend/.vite/deps/react-router-dom.js</li></ul>
+  <details class="hotspot-details"><summary>View the relevant code</summary><div class="hotspot-code"><div class="code-location">frontend/.vite/deps/chunk-I2MCD6RR.js · lines 472–21573 · &quot;node_modules/react-dom/cjs/react-dom.development.js&quot;</div><pre><code>   472 |   &quot;node_modules/react-dom/cjs/react-dom.development.js&quot;(exports) {
+   473 |     &quot;use strict&quot;;
+   474 |     if (true) {
+   475 |       (function() {
+   476 |         &quot;use strict&quot;;
+   477 |         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== &quot;undefined&quot; &amp;&amp; typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === &quot;function&quot;) {
+   478 |           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+   479 |         }
+   480 |         var React = require_react();
+   481 |         var Scheduler = require_scheduler();
+   482 |         var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+   483 |         var suppressWarning = false;
+   484 |         function setSuppressWarning(newSuppressWarning) {
+   485 |           {
+   486 |             suppressWarning = newSuppressWarning;
+   487 |           }
+   488 |         }
+   489 |         function warn(format) {
+   490 |           {
+   491 |             if (!suppressWarning) {
+   492 |               for (var _len = arguments.length, args = new Array(_len &gt; 1 ? _len - 1 : 0), _key = 1; _key &lt; _len; _key++) {
+   493 |                 args[_key - 1] = arguments[_key];
+   494 |               }
+   495 |               printWarning(&quot;warn&quot;, format, args);
+   496 |             }
+   497 |           }
+   498 |         }
+   499 |         function error(format) {
+   500 |           {
+   501 |             if (!suppressWarning) {
+   502 |               for (var _len2 = arguments.length, args = new Array(_len2 &gt; 1 ? _len2 - 1 : 0), _key2 = 1; _key2 &lt; _len2; _key2++) {
+   503 |                 args[_key2 - 1] = arguments[_key2];
+   504 |               }
+   505 |               printWarning(&quot;error&quot;, format, args);
+   506 |             }
+   507 |           }
+   508 |         }
+   509 |         function printWarning(level, format, args) {
+   510 |           {
+   511 |             var ReactDebugCurrentFrame2 = ReactSharedInternals.ReactDebugCurrentFrame;
+   512 |             var stack = ReactDebugCurrentFrame2.getStackAddendum();
+   513 |             if (stack !== &quot;&quot;) {
+   514 |               format += &quot;%s&quot;;
+   515 |               args = args.concat([stack]);
+   516 |             }
+   517 |             var argsWithFormat = args.map(function(item) {
+   518 |               return String(item);
+   519 |             });
+   520 |             argsWithFormat.unshift(&quot;Warning: &quot; + format);
+   521 |             Function.prototype.apply.call(console[level], console, argsWithFormat);
+   522 |           }
+   523 |         }
+   524 |         var FunctionComponent = 0;
+   525 |         var ClassComponent = 1;
+   526 |         var IndeterminateComponent = 2;
+   527 |         var HostRoot = 3;
+   528 |         var HostPortal = 4;
+   529 |         var HostComponent = 5;
+   530 |         var HostText = 6;
+   531 |         var Fragment = 7;
+   532 |         var Mode = 8;
+   533 |         var ContextConsumer = 9;
+   534 |         var ContextProvider = 10;
+   535 |         var ForwardRef = 11;
+   536 |         var Profiler = 12;
+   537 |         var SuspenseComponent = 13;
+   538 |         var MemoComponent = 14;
+   539 |         var SimpleMemoComponent = 15;
+   540 |         var LazyComponent = 16;
+   541 |         var IncompleteClassComponent = 17;
+   542 |         var DehydratedFragment = 18;
+   543 |         var SuspenseListComponent = 19;
+   544 |         var ScopeComponent = 21;
+   545 |         var OffscreenComponent = 22;
+   546 |         var LegacyHiddenComponent = 23;
+   547 |         var CacheComponent = 24;
+   548 |         var TracingMarkerComponent = 25;
+   549 |         var enableClientRenderFallbackOnTextMismatch = true;
+   550 |         var enableNewReconciler = false;
+   551 |         var enableLazyContextPropagation = false;
+   552 |         var enableLegacyHidden = false;
+   553 |         var enableSuspenseAvoidThisFallback = false;
+   554 |         var disableCommentsAsDOMContainers = true;
+   555 |         var enableCustomElementPropertySupport = false;
+   556 |         var warnAboutStringRefs = true;
+   557 |         var enableSchedulingProfiler = true;
+   558 |         var enableProfilerTimer = true;
+   559 |         var enableProfilerCommitHooks = true;
+   560 |         var allNativeEvents = /* @__PURE__ */ new Set();
+   561 |         var registrationNameDependencies = {};
+       | … middle lines omitted from this display …
+ 21484 |           }
+ 21485 |         }
+ 21486 |         setAttemptSynchronousHydration(attemptSynchronousHydration$1);
+ 21487 |         setAttemptContinuousHydration(attemptContinuousHydration$1);
+ 21488 |         setAttemptHydrationAtCurrentPriority(attemptHydrationAtCurrentPriority$1);
+ 21489 |         setGetCurrentUpdatePriority(getCurrentUpdatePriority);
+ 21490 |         setAttemptHydrationAtPriority(runWithPriority);
+ 21491 |         {
+ 21492 |           if (typeof Map !== &quot;function&quot; || // $FlowIssue Flow incorrectly thinks Map has no prototype
+ 21493 |           Map.prototype == null || typeof Map.prototype.forEach !== &quot;function&quot; || typeof Set !== &quot;function&quot; || // $FlowIssue Flow incorrectly thinks Set has no prototype
+ 21494 |           Set.prototype == null || typeof Set.prototype.clear !== &quot;function&quot; || typeof Set.prototype.forEach !== &quot;function&quot;) {
+ 21495 |             error(&quot;React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills&quot;);
+ 21496 |           }
+ 21497 |         }
+ 21498 |         setRestoreImplementation(restoreControlledState$3);
+ 21499 |         setBatchingImplementation(batchedUpdates$1, discreteUpdates, flushSync);
+ 21500 |         function createPortal$1(children, container) {
+ 21501 |           var key = arguments.length &gt; 2 &amp;&amp; arguments[2] !== void 0 ? arguments[2] : null;
+ 21502 |           if (!isValidContainer(container)) {
+ 21503 |             throw new Error(&quot;Target container is not a DOM element.&quot;);
+ 21504 |           }
+ 21505 |           return createPortal(children, container, null, key);
+ 21506 |         }
+ 21507 |         function renderSubtreeIntoContainer(parentComponent, element, containerNode, callback) {
+ 21508 |           return unstable_renderSubtreeIntoContainer(parentComponent, element, containerNode, callback);
+ 21509 |         }
+ 21510 |         var Internals = {
+ 21511 |           usingClientEntryPoint: false,
+ 21512 |           // Keep in sync with ReactTestUtils.js.
+ 21513 |           // This is an array for better minification.
+ 21514 |           Events: [getInstanceFromNode, getNodeFromInstance, getFiberCurrentPropsFromNode, enqueueStateRestore, restoreStateIfNeeded, batchedUpdates$1]
+ 21515 |         };
+ 21516 |         function createRoot$1(container, options2) {
+ 21517 |           {
+ 21518 |             if (!Internals.usingClientEntryPoint &amp;&amp; true) {
+ 21519 |               error(&#x27;You are importing createRoot from &quot;react-dom&quot; which is not supported. You should instead import it from &quot;react-dom/client&quot;.&#x27;);
+ 21520 |             }
+ 21521 |           }
+ 21522 |           return createRoot(container, options2);
+ 21523 |         }
+ 21524 |         function hydrateRoot$1(container, initialChildren, options2) {
+ 21525 |           {
+ 21526 |             if (!Internals.usingClientEntryPoint &amp;&amp; true) {
+ 21527 |               error(&#x27;You are importing hydrateRoot from &quot;react-dom&quot; which is not supported. You should instead import it from &quot;react-dom/client&quot;.&#x27;);
+ 21528 |             }
+ 21529 |           }
+ 21530 |           return hydrateRoot(container, initialChildren, options2);
+ 21531 |         }
+ 21532 |         function flushSync$1(fn) {
+ 21533 |           {
+ 21534 |             if (isAlreadyRendering()) {
+ 21535 |               error(&quot;flushSync was called from inside a lifecycle method. React cannot flush when React is already rendering. Consider moving this call to a scheduler task or micro task.&quot;);
+ 21536 |             }
+ 21537 |           }
+ 21538 |           return flushSync(fn);
+ 21539 |         }
+ 21540 |         var foundDevTools = injectIntoDevTools({
+ 21541 |           findFiberByHostInstance: getClosestInstanceFromNode,
+ 21542 |           bundleType: 1,
+ 21543 |           version: ReactVersion,
+ 21544 |           rendererPackageName: &quot;react-dom&quot;
+ 21545 |         });
+ 21546 |         {
+ 21547 |           if (!foundDevTools &amp;&amp; canUseDOM &amp;&amp; window.top === window.self) {
+ 21548 |             if (navigator.userAgent.indexOf(&quot;Chrome&quot;) &gt; -1 &amp;&amp; navigator.userAgent.indexOf(&quot;Edge&quot;) === -1 || navigator.userAgent.indexOf(&quot;Firefox&quot;) &gt; -1) {
+ 21549 |               var protocol = window.location.protocol;
+ 21550 |               if (/^(https?|file):$/.test(protocol)) {
+ 21551 |                 console.info(&quot;%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools&quot; + (protocol === &quot;file:&quot; ? &quot;\nYou might need to use a local HTTP server (instead of file://): https://reactjs.org/link/react-devtools-faq&quot; : &quot;&quot;), &quot;font-weight:bold&quot;);
+ 21552 |               }
+ 21553 |             }
+ 21554 |           }
+ 21555 |         }
+ 21556 |         exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = Internals;
+ 21557 |         exports.createPortal = createPortal$1;
+ 21558 |         exports.createRoot = createRoot$1;
+ 21559 |         exports.findDOMNode = findDOMNode;
+ 21560 |         exports.flushSync = flushSync$1;
+ 21561 |         exports.hydrate = hydrate;
+ 21562 |         exports.hydrateRoot = hydrateRoot$1;
+ 21563 |         exports.render = render;
+ 21564 |         exports.unmountComponentAtNode = unmountComponentAtNode;
+ 21565 |         exports.unstable_batchedUpdates = batchedUpdates$1;
+ 21566 |         exports.unstable_renderSubtreeIntoContainer = renderSubtreeIntoContainer;
+ 21567 |         exports.version = ReactVersion;
+ 21568 |         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== &quot;undefined&quot; &amp;&amp; typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === &quot;function&quot;) {
+ 21569 |           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+ 21570 |         }
+ 21571 |       })();
+ 21572 |     }
+ 21573 |   }</code></pre></div></details>
+</article>
+<article class="hotspot-card">
+  <div class="structural-badge">STRUCTURAL REVIEW</div>
+  <h3>2. Complex decision function in chunk-E55NSNTN.js</h3>
+  <p>A heavily branched decision function is used on an important execution surface. A large amount of behavior is concentrated in one module.</p>
+  <h3>Why it was selected</h3><ul><li>&quot;node_modules/react/cjs/react.development.js&quot;: 214 decisions with nesting depth 13</li><li>1906 source lines and 88 functions/classes</li></ul>
+  <h3>Connected source files</h3><ul><li>frontend/.vite/deps/@tanstack_react-query.js</li><li>frontend/.vite/deps/chunk-4MBMRILA.js</li><li>frontend/.vite/deps/chunk-I2MCD6RR.js</li><li>frontend/.vite/deps/lucide-react.js</li><li>frontend/.vite/deps/react-dom_client.js</li><li>frontend/.vite/deps/react-router-dom.js</li><li>frontend/.vite/deps/react.js</li><li>frontend/.vite/deps/zustand.js</li></ul>
+  <details class="hotspot-details"><summary>View the relevant code</summary><div class="hotspot-code"><div class="code-location">frontend/.vite/deps/chunk-E55NSNTN.js · lines 7–1876 · &quot;node_modules/react/cjs/react.development.js&quot;</div><pre><code>     7 |   &quot;node_modules/react/cjs/react.development.js&quot;(exports, module) {
+     8 |     &quot;use strict&quot;;
+     9 |     if (true) {
+    10 |       (function() {
+    11 |         &quot;use strict&quot;;
+    12 |         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== &quot;undefined&quot; &amp;&amp; typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === &quot;function&quot;) {
+    13 |           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+    14 |         }
+    15 |         var ReactVersion = &quot;18.3.1&quot;;
+    16 |         var REACT_ELEMENT_TYPE = Symbol.for(&quot;react.element&quot;);
+    17 |         var REACT_PORTAL_TYPE = Symbol.for(&quot;react.portal&quot;);
+    18 |         var REACT_FRAGMENT_TYPE = Symbol.for(&quot;react.fragment&quot;);
+    19 |         var REACT_STRICT_MODE_TYPE = Symbol.for(&quot;react.strict_mode&quot;);
+    20 |         var REACT_PROFILER_TYPE = Symbol.for(&quot;react.profiler&quot;);
+    21 |         var REACT_PROVIDER_TYPE = Symbol.for(&quot;react.provider&quot;);
+    22 |         var REACT_CONTEXT_TYPE = Symbol.for(&quot;react.context&quot;);
+    23 |         var REACT_FORWARD_REF_TYPE = Symbol.for(&quot;react.forward_ref&quot;);
+    24 |         var REACT_SUSPENSE_TYPE = Symbol.for(&quot;react.suspense&quot;);
+    25 |         var REACT_SUSPENSE_LIST_TYPE = Symbol.for(&quot;react.suspense_list&quot;);
+    26 |         var REACT_MEMO_TYPE = Symbol.for(&quot;react.memo&quot;);
+    27 |         var REACT_LAZY_TYPE = Symbol.for(&quot;react.lazy&quot;);
+    28 |         var REACT_OFFSCREEN_TYPE = Symbol.for(&quot;react.offscreen&quot;);
+    29 |         var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+    30 |         var FAUX_ITERATOR_SYMBOL = &quot;@@iterator&quot;;
+    31 |         function getIteratorFn(maybeIterable) {
+    32 |           if (maybeIterable === null || typeof maybeIterable !== &quot;object&quot;) {
+    33 |             return null;
+    34 |           }
+    35 |           var maybeIterator = MAYBE_ITERATOR_SYMBOL &amp;&amp; maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+    36 |           if (typeof maybeIterator === &quot;function&quot;) {
+    37 |             return maybeIterator;
+    38 |           }
+    39 |           return null;
+    40 |         }
+    41 |         var ReactCurrentDispatcher = {
+    42 |           /**
+    43 |            * @internal
+    44 |            * @type {ReactComponent}
+    45 |            */
+    46 |           current: null
+    47 |         };
+    48 |         var ReactCurrentBatchConfig = {
+    49 |           transition: null
+    50 |         };
+    51 |         var ReactCurrentActQueue = {
+    52 |           current: null,
+    53 |           // Used to reproduce behavior of `batchedUpdates` in legacy mode.
+    54 |           isBatchingLegacy: false,
+    55 |           didScheduleLegacyUpdate: false
+    56 |         };
+    57 |         var ReactCurrentOwner = {
+    58 |           /**
+    59 |            * @internal
+    60 |            * @type {ReactComponent}
+    61 |            */
+    62 |           current: null
+    63 |         };
+    64 |         var ReactDebugCurrentFrame = {};
+    65 |         var currentExtraStackFrame = null;
+    66 |         function setExtraStackFrame(stack) {
+    67 |           {
+    68 |             currentExtraStackFrame = stack;
+    69 |           }
+    70 |         }
+    71 |         {
+    72 |           ReactDebugCurrentFrame.setExtraStackFrame = function(stack) {
+    73 |             {
+    74 |               currentExtraStackFrame = stack;
+    75 |             }
+    76 |           };
+    77 |           ReactDebugCurrentFrame.getCurrentStack = null;
+    78 |           ReactDebugCurrentFrame.getStackAddendum = function() {
+    79 |             var stack = &quot;&quot;;
+    80 |             if (currentExtraStackFrame) {
+    81 |               stack += currentExtraStackFrame;
+    82 |             }
+    83 |             var impl = ReactDebugCurrentFrame.getCurrentStack;
+    84 |             if (impl) {
+    85 |               stack += impl() || &quot;&quot;;
+    86 |             }
+    87 |             return stack;
+    88 |           };
+    89 |         }
+    90 |         var enableScopeAPI = false;
+    91 |         var enableCacheElement = false;
+    92 |         var enableTransitionTracing = false;
+    93 |         var enableLegacyHidden = false;
+    94 |         var enableDebugTracing = false;
+    95 |         var ReactSharedInternals = {
+    96 |           ReactCurrentDispatcher,
+       | … middle lines omitted from this display …
+  1787 |                   if (queue.length === 0) {
+  1788 |                     ReactCurrentActQueue.current = null;
+  1789 |                     resolve(returnValue);
+  1790 |                   } else {
+  1791 |                     recursivelyFlushAsyncActWork(returnValue, resolve, reject);
+  1792 |                   }
+  1793 |                 });
+  1794 |               } catch (error2) {
+  1795 |                 reject(error2);
+  1796 |               }
+  1797 |             } else {
+  1798 |               resolve(returnValue);
+  1799 |             }
+  1800 |           }
+  1801 |         }
+  1802 |         var isFlushing = false;
+  1803 |         function flushActQueue(queue) {
+  1804 |           {
+  1805 |             if (!isFlushing) {
+  1806 |               isFlushing = true;
+  1807 |               var i = 0;
+  1808 |               try {
+  1809 |                 for (; i &lt; queue.length; i++) {
+  1810 |                   var callback = queue[i];
+  1811 |                   do {
+  1812 |                     callback = callback(true);
+  1813 |                   } while (callback !== null);
+  1814 |                 }
+  1815 |                 queue.length = 0;
+  1816 |               } catch (error2) {
+  1817 |                 queue = queue.slice(i + 1);
+  1818 |                 throw error2;
+  1819 |               } finally {
+  1820 |                 isFlushing = false;
+  1821 |               }
+  1822 |             }
+  1823 |           }
+  1824 |         }
+  1825 |         var createElement$1 = createElementWithValidation;
+  1826 |         var cloneElement$1 = cloneElementWithValidation;
+  1827 |         var createFactory = createFactoryWithValidation;
+  1828 |         var Children = {
+  1829 |           map: mapChildren,
+  1830 |           forEach: forEachChildren,
+  1831 |           count: countChildren,
+  1832 |           toArray,
+  1833 |           only: onlyChild
+  1834 |         };
+  1835 |         exports.Children = Children;
+  1836 |         exports.Component = Component;
+  1837 |         exports.Fragment = REACT_FRAGMENT_TYPE;
+  1838 |         exports.Profiler = REACT_PROFILER_TYPE;
+  1839 |         exports.PureComponent = PureComponent;
+  1840 |         exports.StrictMode = REACT_STRICT_MODE_TYPE;
+  1841 |         exports.Suspense = REACT_SUSPENSE_TYPE;
+  1842 |         exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
+  1843 |         exports.act = act;
+  1844 |         exports.cloneElement = cloneElement$1;
+  1845 |         exports.createContext = createContext;
+  1846 |         exports.createElement = createElement$1;
+  1847 |         exports.createFactory = createFactory;
+  1848 |         exports.createRef = createRef;
+  1849 |         exports.forwardRef = forwardRef;
+  1850 |         exports.isValidElement = isValidElement;
+  1851 |         exports.lazy = lazy;
+  1852 |         exports.memo = memo;
+  1853 |         exports.startTransition = startTransition;
+  1854 |         exports.unstable_act = act;
+  1855 |         exports.useCallback = useCallback;
+  1856 |         exports.useContext = useContext;
+  1857 |         exports.useDebugValue = useDebugValue;
+  1858 |         exports.useDeferredValue = useDeferredValue;
+  1859 |         exports.useEffect = useEffect;
+  1860 |         exports.useId = useId;
+  1861 |         exports.useImperativeHandle = useImperativeHandle;
+  1862 |         exports.useInsertionEffect = useInsertionEffect;
+  1863 |         exports.useLayoutEffect = useLayoutEffect;
+  1864 |         exports.useMemo = useMemo;
+  1865 |         exports.useReducer = useReducer;
+  1866 |         exports.useRef = useRef;
+  1867 |         exports.useState = useState;
+  1868 |         exports.useSyncExternalStore = useSyncExternalStore;
+  1869 |         exports.useTransition = useTransition;
+  1870 |         exports.version = ReactVersion;
+  1871 |         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== &quot;undefined&quot; &amp;&amp; typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === &quot;function&quot;) {
+  1872 |           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+  1873 |         }
+  1874 |       })();
+  1875 |     }
+  1876 |   }</code></pre></div></details>
+</article>
+<article class="hotspot-card">
+  <div class="structural-badge">STRUCTURAL REVIEW</div>
+  <h3>3. Large concentrated module: @tanstack_react-query.js</h3>
+  <p>A large amount of behavior is concentrated in one module.</p>
+  <h3>Why it was selected</h3><ul><li>5447 source lines and 312 functions/classes</li></ul>
+  <h3>Connected source files</h3><ul><li>frontend/.vite/deps/chunk-4MBMRILA.js</li><li>frontend/.vite/deps/chunk-E55NSNTN.js</li></ul>
+  <details class="hotspot-details"><summary>View the relevant code</summary><div class="hotspot-code"><div class="code-location">frontend/.vite/deps/@tanstack_react-query.js · lines 195–450 · Relevant source section</div><pre><code>   195 |                 value: disabledLog,
+   196 |                 writable: true
+   197 |               };
+   198 |               Object.defineProperties(console, {
+   199 |                 info: props,
+   200 |                 log: props,
+   201 |                 warn: props,
+   202 |                 error: props,
+   203 |                 group: props,
+   204 |                 groupCollapsed: props,
+   205 |                 groupEnd: props
+   206 |               });
+   207 |             }
+   208 |             disabledDepth++;
+   209 |           }
+   210 |         }
+   211 |         function reenableLogs() {
+   212 |           {
+   213 |             disabledDepth--;
+   214 |             if (disabledDepth === 0) {
+   215 |               var props = {
+   216 |                 configurable: true,
+   217 |                 enumerable: true,
+   218 |                 writable: true
+   219 |               };
+   220 |               Object.defineProperties(console, {
+   221 |                 log: assign({}, props, {
+   222 |                   value: prevLog
+   223 |                 }),
+   224 |                 info: assign({}, props, {
+   225 |                   value: prevInfo
+   226 |                 }),
+   227 |                 warn: assign({}, props, {
+   228 |                   value: prevWarn
+   229 |                 }),
+   230 |                 error: assign({}, props, {
+   231 |                   value: prevError
+   232 |                 }),
+   233 |                 group: assign({}, props, {
+   234 |                   value: prevGroup
+   235 |                 }),
+   236 |                 groupCollapsed: assign({}, props, {
+   237 |                   value: prevGroupCollapsed
+   238 |                 }),
+   239 |                 groupEnd: assign({}, props, {
+   240 |                   value: prevGroupEnd
+   241 |                 })
+   242 |               });
+   243 |             }
+   244 |             if (disabledDepth &lt; 0) {
+   245 |               error(&quot;disabledDepth fell below zero. This is a bug in React. Please file an issue.&quot;);
+   246 |             }
+   247 |           }
+   248 |         }
+   249 |         var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+   250 |         var prefix;
+   251 |         function describeBuiltInComponentFrame(name, source, ownerFn) {
+   252 |           {
+   253 |             if (prefix === void 0) {
+   254 |               try {
+   255 |                 throw Error();
+   256 |               } catch (x) {
+   257 |                 var match = x.stack.trim().match(/\n( *(at )?)/);
+   258 |                 prefix = match &amp;&amp; match[1] || &quot;&quot;;
+   259 |               }
+   260 |             }
+   261 |             return &quot;\n&quot; + prefix + name;
+   262 |           }
+   263 |         }
+   264 |         var reentry = false;
+   265 |         var componentFrameCache;
+   266 |         {
+   267 |           var PossiblyWeakMap = typeof WeakMap === &quot;function&quot; ? WeakMap : Map;
+   268 |           componentFrameCache = new PossiblyWeakMap();
+   269 |         }
+   270 |         function describeNativeComponentFrame(fn, construct) {
+   271 |           if (!fn || reentry) {
+   272 |             return &quot;&quot;;
+   273 |           }
+   274 |           {
+   275 |             var frame = componentFrameCache.get(fn);
+   276 |             if (frame !== void 0) {
+   277 |               return frame;
+   278 |             }
+   279 |           }
+   280 |           var control;
+   281 |           reentry = true;
+   282 |           var previousPrepareStackTrace = Error.prepareStackTrace;
+   283 |           Error.prepareStackTrace = void 0;
+   284 |           var previousDispatcher;
+       | … middle lines omitted from this display …
+   361 |             }
+   362 |             Error.prepareStackTrace = previousPrepareStackTrace;
+   363 |           }
+   364 |           var name = fn ? fn.displayName || fn.name : &quot;&quot;;
+   365 |           var syntheticFrame = name ? describeBuiltInComponentFrame(name) : &quot;&quot;;
+   366 |           {
+   367 |             if (typeof fn === &quot;function&quot;) {
+   368 |               componentFrameCache.set(fn, syntheticFrame);
+   369 |             }
+   370 |           }
+   371 |           return syntheticFrame;
+   372 |         }
+   373 |         function describeFunctionComponentFrame(fn, source, ownerFn) {
+   374 |           {
+   375 |             return describeNativeComponentFrame(fn, false);
+   376 |           }
+   377 |         }
+   378 |         function shouldConstruct(Component) {
+   379 |           var prototype = Component.prototype;
+   380 |           return !!(prototype &amp;&amp; prototype.isReactComponent);
+   381 |         }
+   382 |         function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+   383 |           if (type == null) {
+   384 |             return &quot;&quot;;
+   385 |           }
+   386 |           if (typeof type === &quot;function&quot;) {
+   387 |             {
+   388 |               return describeNativeComponentFrame(type, shouldConstruct(type));
+   389 |             }
+   390 |           }
+   391 |           if (typeof type === &quot;string&quot;) {
+   392 |             return describeBuiltInComponentFrame(type);
+   393 |           }
+   394 |           switch (type) {
+   395 |             case REACT_SUSPENSE_TYPE:
+   396 |               return describeBuiltInComponentFrame(&quot;Suspense&quot;);
+   397 |             case REACT_SUSPENSE_LIST_TYPE:
+   398 |               return describeBuiltInComponentFrame(&quot;SuspenseList&quot;);
+   399 |           }
+   400 |           if (typeof type === &quot;object&quot;) {
+   401 |             switch (type.$$typeof) {
+   402 |               case REACT_FORWARD_REF_TYPE:
+   403 |                 return describeFunctionComponentFrame(type.render);
+   404 |               case REACT_MEMO_TYPE:
+   405 |                 return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+   406 |               case REACT_LAZY_TYPE: {
+   407 |                 var lazyComponent = type;
+   408 |                 var payload = lazyComponent._payload;
+   409 |                 var init = lazyComponent._init;
+   410 |                 try {
+   411 |                   return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+   412 |                 } catch (x) {
+   413 |                 }
+   414 |               }
+   415 |             }
+   416 |           }
+   417 |           return &quot;&quot;;
+   418 |         }
+   419 |         var hasOwnProperty = Object.prototype.hasOwnProperty;
+   420 |         var loggedTypeFailures = {};
+   421 |         var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+   422 |         function setCurrentlyValidatingElement(element) {
+   423 |           {
+   424 |             if (element) {
+   425 |               var owner = element._owner;
+   426 |               var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+   427 |               ReactDebugCurrentFrame.setExtraStackFrame(stack);
+   428 |             } else {
+   429 |               ReactDebugCurrentFrame.setExtraStackFrame(null);
+   430 |             }
+   431 |           }
+   432 |         }
+   433 |         function checkPropTypes(typeSpecs, values, location, componentName, element) {
+   434 |           {
+   435 |             var has = Function.call.bind(hasOwnProperty);
+   436 |             for (var typeSpecName in typeSpecs) {
+   437 |               if (has(typeSpecs, typeSpecName)) {
+   438 |                 var error$1 = void 0;
+   439 |                 try {
+   440 |                   if (typeof typeSpecs[typeSpecName] !== &quot;function&quot;) {
+   441 |                     var err = Error((componentName || &quot;React class&quot;) + &quot;: &quot; + location + &quot; type `&quot; + typeSpecName + &quot;` is invalid; it must be a function, usually from the `prop-types` package, but received `&quot; + typeof typeSpecs[typeSpecName] + &quot;`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.&quot;);
+   442 |                     err.name = &quot;Invariant Violation&quot;;
+   443 |                     throw err;
+   444 |                   }
+   445 |                   error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, &quot;SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED&quot;);
+   446 |                 } catch (ex) {
+   447 |                   error$1 = ex;
+   448 |                 }
+   449 |                 if (error$1 &amp;&amp; !(error$1 instanceof Error)) {
+   450 |                   setCurrentlyValidatingElement(element);</code></pre></div></details>
+</article>
+</section></main>
+<style id="unvibecode-review-continue-style">
+#unvibecode-review-continue{
+  width:min(1180px,calc(100% - 32px));
+  margin:26px auto 18px;
+  padding:16px 18px;
+  border:1px solid #dbe3ee;
+  border-radius:12px;
+  background:#f8fafc;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:#0f172a;
+  font-family:Segoe UI,Arial,sans-serif;
+}
+#unvibecode-review-continue .uvc-next-kicker{
+  margin:0 0 3px;
+  color:#64748b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+#unvibecode-review-continue .uvc-next-copy{
+  margin:0;
+  color:#475569;
+  font-size:13px;
+  line-height:1.4;
+}
+#unvibecode-review-continue .uvc-next-button{
+  appearance:none;
+  border:0;
+  border-radius:9px;
+  background:#4f46e5;
+  color:#fff;
+  padding:10px 14px;
+  font:700 13px/1.2 Segoe UI,Arial,sans-serif;
+  cursor:pointer;
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  #unvibecode-review-continue{align-items:stretch;flex-direction:column}
+  #unvibecode-review-continue .uvc-next-button{width:100%}
+}
+</style>
+<section id="unvibecode-review-continue" aria-label="Continue your review">
+  <div>
+    <p class="uvc-next-kicker">Continue your review</p>
+    <p class="uvc-next-copy">Download the complete normalized repository ZIP for LLM or API analysis.</p>
+  </div>
+  <button class="uvc-next-button" type="button" data-target="llm-context">LLM Context →</button>
+</section>
+<script>
+(function(){
+  const section = document.getElementById('unvibecode-review-continue');
+  if (!section) return;
+  const button = section.querySelector('[data-target]');
+  if (!button) return;
+  if (new URLSearchParams(window.location.search).get('early') === '1') {
+    button.setAttribute('data-target', 'llm-context');
+    button.textContent = 'LLM Context →';
+    section.querySelector('.uvc-next-copy').textContent = 'Download repository context for LLM or API analysis.';
+  }
+  button.addEventListener('click', function(){
+    const target = button.getAttribute('data-target');
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'unvibecode-select-view',
+        target: target
+      }, '*');
+      return;
+    }
+    window.location.href = '00_unvibecode_results.html#' + encodeURIComponent(target);
+  });
+})();
+</script>
+
+<script>if(window.self!==window.top)document.documentElement.classList.add("uvc-embedded");</script></body></html>
