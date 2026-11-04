@@ -1,0 +1,24 @@
+Scanning workspace: C:\Users\subhankar nath\Downloads\SIH26265\fdr-shield
+Parsing source files: 295
+[STAGE 1 COMPLETE] 295 files, 629 internal file edges, 0 package-level edges, 1,222 unresolved/external imports, 0 symbol edges, 0 unresolved Go usages
+
+[SHIPREADYV2 LINKER RESOLUTION COMPLETE]
+Output: C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\shipreadyv2_resolved_graph.json
+Files indexed: 295
+Imports: 813 resolved, 0 package-level, 33 partial, 995 unresolved, 10 hard-path skipped, 11 uncertain
+Python enrichment: 171 files, 44 safe constants, 11 dynamic imports marked
+Symbols: 1,333/2,692 resolved; 175 ambiguous names in index
+Symbol edges added: 1,353
+Go symbol edges promoted: 0; unresolved Go usages: 0
+
+[SHIPREADYV2 FAST LANE COMPLETE]
+Target folder: C:\Users\subhankar nath\Downloads\SIH26265\fdr-shield
+Run folder:    C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run
+Profile JSON:  C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\fast_lane_repository_profile.json
+Resolved JSON: C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\shipreadyv2_resolved_graph.json
+Symbol graph:  C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\fast_lane_symbol_resolution_graph.html
+Click downloads: 284 files, 2,019 code sections, prepared in 1.448s
+Context JSON:  C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\fast_lane_context_store.json
+Complete ZIP:  C:\Users\subhankar nath\AppData\Local\Temp\uvc-4j3ejq61\c\run\shipready_complete_repository_context.zip
+Context timing: {'code_sections': 0.444, 'connections': 0.02, 'download_selections': 0.251, 'browser_store': 0.127, 'zip_bundle': 0.587}
+Timing:        {'graph_build_seconds': 9.809, 'linker_seconds': 1.588, 'context_download_preparation_seconds': 1.448, 'html_render_seconds': 3.35, 'fast_lane_total_seconds': 16.196}
