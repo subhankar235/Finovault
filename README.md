@@ -1,6 +1,6 @@
 <div align="center">
 
-# FDR Shield
+# FDRs Shield
 
 ### Intelligent FDR Lifecycle Management for Institutional Compliance
 **From FDR submission to verified closure.**
